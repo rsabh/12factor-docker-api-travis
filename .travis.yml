@@ -1,0 +1,15 @@
+before_script:
+    - npm install; nmp install -g gulp
+script: gulp test
+language: node_js
+env:
+    - MONGO_INITDB_DATABASE=noderest
+    - MONGO_INITDB_DEV_DATABASE=noderest
+    - DB_DEV_URL=mongodb://Admin:Admin123@172.27.66.55:27017/noderest?authMechanism=SCRAM-SHA-1&authSource=admin
+    - DB_URL=mongodb://Admin:Admin123@172.27.66.55:27017/noderest?authMechanism=SCRAM-SHA-1&authSource=admin
+    - MONGO_DATA_DIR=/data/db
+    - MONGO_TEST_DATA_DIR=/data/test_db
+    - MONGO_LOG_FILE=/var/log/mongodb/mongodb.log
+    - MONGO_PORT=27017
+    - MONGO_VERSION=4.0
+    - PORT=8081
