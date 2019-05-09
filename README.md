@@ -1,20 +1,20 @@
 # Steps to clone the repository and run a docker container for 12factor sample node application
 
-1) Clone the git repository in Visual Studio Code using the terminal:
+1) Clone the Git repository in Visual Studio Code using the terminal:
 
         git clone <https://github.com/ActiveHealth/Integrators_portfolio>
 
     **Notes**:
 
-    •    Make sure the git proxy is set up on the machine.
+    â€¢    Make sure the git proxy is set up on the machine.
 
-    •    Since Multi-factor authentication is enabled for Active           Health, you will need to specify the Access Token when            prompted for the password.
+    â€¢    Since Multi-factor authentication is enabled for Active           Health, you will need to specify the Access Token when            prompted for the password.
 
-2) Browse to the root folder of the project – ‘12factor-docker-api’
+2) Browse to the root folder of the project â€“ â€˜12factor-docker-apiâ€™
 
         cd Integrators_portfolio/12factor-docker-api/
 
-3) Create a ‘**.env**’ file within the root directory and copy the following values:
+3) Create a â€˜**.env**â€™ file within the root directory and copy the following values:
 
         MONGO_INITDB_DATABASE=noderest
         MONGO_INITDB_DEV_DATABASE=noderest
@@ -29,21 +29,21 @@
 
     **Notes:**
 
-        •    A ‘.env’ file should be used only for development purpose. 
-        •    This file can contain environment specific details such as port, external service credentials, etc. 
-        •    This file should NOT be checked into Github as it can contain sensitive information.
+        â€¢    A â€˜.envâ€™ file should be used only for development purpose. 
+        â€¢    This file can contain environment specific details such as port, external service credentials, etc. 
+        â€¢    This file should NOT be checked into Github as it can contain sensitive information.
 
-4) Build the image using ‘docker-compose’ using the below command:
+4) Build the image using â€˜docker-composeâ€™ using the below command:
 
         docker-compose -f docker/prod/docker-compose-production.yml build
 
-        Run ‘docker images’ command to check if the image is created. You should be able to see ‘prod_nodeapp’ listed.
+        Run â€˜docker imagesâ€™ command to check if the image is created. You should be able to see â€˜prod_nodeappâ€™ listed.
 
-5) Create and run the container using the below ‘docker-compose’ command:
+5) Create and run the container using the below â€˜docker-composeâ€™ command:
 
-        docker-compose -f docker/prod/docker-compose-production.yml up –d
+        docker-compose -f docker/prod/docker-compose-production.yml up â€“d
 
-        Check if the container is running by executing ‘docker ps –a’ command. You should be able to see 2 containers up and running: ‘prod_nodeapp’ and ‘mongo:4.0’
+        Check if the container is running by executing â€˜docker ps â€“aâ€™ command. You should be able to see 2 containers up and running: â€˜prod_nodeappâ€™ and â€˜mongo:4.0â€™
 
 6) The node application should be accessible on port **8081** (mapped to 8081 within the container)
 
